@@ -1,0 +1,167 @@
+@use "../components/Dark-mode/Darkmode" as *;
+@use "../components/Card/Card" as *;
+@use "../components/Social/Social-buttom" as *;
+@use "../components/Card-Contact/Card-contact" as *;
+// src\style\Main.scss
+
+$color-fondo: #131212;
+$color-fondo-segundario: #f0ebeb;
+$color-principal: #390355;
+$color-segundario: #dcdcdc;
+$color-acento: #9e7b22;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Chakra Petch", sans-serif;
+}
+
+body.dark-mode {
+  background-color: #131212;
+  color: $color-segundario;
+}
+body {
+  background-color: $color-fondo-segundario;
+  color: black;
+}
+
+.container {
+  display: grid;
+  height: 100vh;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-template-areas:
+    "button-Darkmode"
+    "present"
+    "proyect"
+    "about-me"
+    "contact";
+  gap: 50px;
+}
+
+.present {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5rem;
+  border-radius: 10px;
+  min-height: 100vh;
+
+  h1 {
+    font-size: 3rem;
+    text-shadow: 2px 5px 5px rgb(36, 8, 104);
+    margin-bottom: 1rem;
+    animation: fadeInLeft 1s ease-in-out;
+  }
+
+  h2 {
+    color: $color-acento;
+    font-weight: 500;
+    margin-bottom: 2rem;
+    animation: fadeInLeft 1.2s ease-in-out;
+  }
+
+  .description {
+    line-height: 1.5;
+    max-width: 600px;
+    animation: fadeInLeft 1.5s ease-in-out;
+    margin-bottom: 1rem;
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.button-Darkmode {
+  grid-area: button-Darkmode;
+  display: flex;
+  align-items: start;
+  justify-content: end;
+  padding: 20px 20px 0 0;
+}
+
+.Proyect {
+  grid-area: proyect;
+  margin-bottom: 200px;
+  h1 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .card-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin: 20px 0 20px 0;
+  }
+}
+
+.About-me {
+  grid-area: about-me;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  text-align: center;
+  margin-bottom: 20px;
+  padding: 100px;
+
+  .About-me-descrip {
+    border-radius: 50px;
+    box-shadow: 0 16px 16px rgb(65, 3, 100);
+    text-align: start;
+    line-height: 1.5;
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 30px;
+  }
+
+  .Habilities-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    h1 {
+      margin-bottom: 20px;
+    }
+  }
+  .Habilities {
+    display: flex;
+    width: 15rem;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    box-shadow: 0 16px 16px rgb(65, 3, 100);
+    border-radius: 50px;
+    padding: 20px;
+
+    li {
+      list-style: none;
+    }
+  }
+}
+
+.Contact {
+  grid-area: contact;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 100px;
+
+  h1 {
+    margin-bottom: 20px;
+  }
+}
